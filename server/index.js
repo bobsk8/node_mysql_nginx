@@ -17,6 +17,8 @@ var mysql = require('mysql');
 //     });
 // });
 
+app.disable('x-powered-by');
+
 app.get('/', function(req, res) {
     res.send('Foi');
     console.log('Foiiii')

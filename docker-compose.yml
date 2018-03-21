@@ -28,9 +28,20 @@ nginx:
   ports:
     - "80:80"
   volumes:
-    - /www/public
+    - ./data/logs/nginx/:/var/log/nginx
+    - ./certbot/certs/:/var/certs
   volumes_from:
     - node
   links:
     - node:node
 
+certbot:
+  build: "./certbot"
+  links:    
+    - nginx
+  environment:
+    - CN=example.com
+    - EMAIL=fake@gmail.com
+  volumes:
+    - ./certbot/letsencrypt/:/var/www/letsencrypt
+    - ./certbot/certs/:/var/certs
