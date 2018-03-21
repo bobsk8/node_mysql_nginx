@@ -6,7 +6,7 @@ server {
   charset utf-8;
 
   location /public {
-    alias /src/app/public;
+    alias /app/public;
   }
 
   location / {

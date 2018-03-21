@@ -28,7 +28,9 @@ nginx:
   ports:
     - "80:80"
   volumes:
-    - "./www:/www/public"
-  links:
+    - /www/public
+  volumes_from:
     - node
+  links:
+    - node:node
 
